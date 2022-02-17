@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Grid, CssBaseline } from "@material-ui/core";
 
 import List from "./components/List/List";
