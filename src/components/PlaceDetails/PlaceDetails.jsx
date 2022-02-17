@@ -1,9 +1,9 @@
 import React from "react";
 
-const PlaceDetails = () => {
+const PlaceDetails = ({ place }) => {
   return (
     <div>
-      <h2>Place Details</h2>
+      <h2>{place}</h2>
     </div>
   );
 };

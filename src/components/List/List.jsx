@@ -8,6 +8,7 @@ import {
   FormControl,
   Select,
 } from "@material-ui/core";
+import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 import useStyles from "./styles";
 
@@ -16,6 +17,12 @@ const List = () => {
 
   const [type, setType] = useState("restaurantes");
   const [rating, setRating] = useState("");
+
+  const places = [
+    { name: "Cool place" },
+    { name: "Best Stake" },
+    { name: "Best beer" },
+  ];
 
   return (
     <div className={classes.container}>
@@ -33,12 +40,20 @@ const List = () => {
       <FormControl className={classes.formControl}>
         <InputLabel>Rating</InputLabel>
         <Select value={rating} onChange={(e) => setRating(e.target.value)}>
-          <MenuItem value={0}>All</MenuItem>
+          <MenuItem value={0}>Todos</MenuItem>
           <MenuItem value={3}>Acima de 3 estrelas</MenuItem>
           <MenuItem value={4}>Acima de 4 estrelas</MenuItem>
           <MenuItem value={4.5}>Acima de 4.5 estrelas</MenuItem>
         </Select>
       </FormControl>
+
+      <Grid container spacing={3} className={classes.list}>
+        {places?.map((place, index) => (
+          <Grid item key={index} xs={12}>
+            <PlaceDetails place={place.name} />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };
